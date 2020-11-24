@@ -68,7 +68,7 @@ public class ReadFile {
             resulPerson = validatePerson.validate(person);
             int errorP = 0;
             for (String s : resulPerson) {
-                if (!string.equals("Корректная запись")) {
+                if (!s.equals("Корректная запись")) {
                     System.out.println(s);
                     errorP++ ;
                 }
