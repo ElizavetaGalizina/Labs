@@ -1,21 +1,24 @@
-package Sort;
+package sort;
 
-import Contracts.Contract;
+import contracts.Contract;
 
 import java.util.Comparator;
 
+/**
+ * пузырбковая сортировка.
+ */
 public class BubbleSort implements ISorted {
 
     @Override
-    public Object[] sort(Object[] array, Comparator<Contract> comparator) {
+    public final Object[] sort(final Object[] array, final Comparator<Contract> comparator) {
         boolean isSorted = false;
         Contract buf;
         while (!isSorted) {
             isSorted = true;
             for (int i = 0; i < array.length - 1; i++) {
-                if (comparator.compare((Contract)array[i], (Contract)array[i + 1]) >= 1) {
+                if (comparator.compare((Contract) array[i], (Contract) array[i + 1]) >= 1) {
                     isSorted = false;
-                    buf = (Contract)array[i];
+                    buf = (Contract) array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = buf;
 

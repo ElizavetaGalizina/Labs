@@ -1,14 +1,13 @@
-package Validators;
+package validators;
 
 
-import Enity.People;
-import Enum.Gender;
+import enity.People;
+import enums.Gender;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 
 class ValidatorPersonTest {
-
 
     @Test
     void checkFio() {

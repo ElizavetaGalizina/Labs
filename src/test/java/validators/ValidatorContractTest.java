@@ -1,8 +1,8 @@
-package Validators;
+package validators;
 
-import Contracts.Contract;
-import Enum.*;
-import Contracts.InternetContract;
+import contracts.Contract;
+import enums.*;
+import contracts.InternetContract;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -28,7 +28,8 @@ class ValidatorContractTest {
         Contract contract1=new InternetContract(1, LocalDate.of(2015, 5, 10),LocalDate.of(2012, 5, 10),1,null,100);
         Contract contract2=new InternetContract(1, LocalDate.of(2015, 5, 10),LocalDate.of(2017, 5, 10),1,null,100);
         assertEquals("Корректная запись",ValidatorContract.checkDateContract(contract2.getStartDate(),contract2.getEndDate()));
-        assertEquals("Ошибка: некорректная запись даты начала и завершения контракта",ValidatorContract.checkDateContract(contract1.getStartDate(),contract1.getEndDate()));
+        assertEquals("Ошибка: некорректная запись даты начала и завершения контракта",
+                ValidatorContract.checkDateContract(contract1.getStartDate(),contract1.getEndDate()));
     }
 
     @Test
