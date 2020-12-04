@@ -7,6 +7,7 @@ import enums.Channels;
 import enity.People;
 import validators.*;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -50,21 +51,13 @@ public class ReadFile {
     private CSVParser pars = new CSVParserBuilder().withSeparator(';').
             withIgnoreQuotations(true).build();
     /**
-     * проверка на корректность данный владельца.
-     */
-    private ValidatorPerson validatePerson = new ValidatorPerson();
-    /**
-     * проверка на корректность данных контракта.
-     */
-    private ValidatorContract validateContract = new ValidatorContract();
-    /**
-     * результат проверки владельца.
-     */
-    private ArrayList<String> resulPerson = new ArrayList<String>(4);
-    /**
      * результат проверки контракта.
      */
-    private ArrayList<String> resultContract = new ArrayList<String>(5);
+    private List<Validator> validatorList = new ArrayList<>();
+    /**
+     * список сообщений по проверке контракта.
+     */
+    private List<Message> messages = new ArrayList<>();
 
     /**
      * конструктор без параметров.
@@ -81,7 +74,14 @@ public class ReadFile {
      * @throws IOException исключение
      */
     public Repository readFile(Reader reader)
-            throws IOException {
+            throws IOException, ClassNotFoundException {
+        validatorList.add(new AgeValidator());
+        validatorList.add(new IdValidator());
+        validatorList.add(new DateValidator());
+        validatorList.add(new InternetContractValidator());
+        validatorList.add(new MobileContractValidator());
+        validatorList.add(new NumberValidator());
+        validatorList.add(new DigitalTVContractValidate());
         csvReader = new CSVReaderBuilder(new FileReader("contracts.csv")).
                 withCSVParser(pars).withSkipLines(0).build();
         logger.info("Началось считывание файла contracts.csv");
@@ -104,17 +104,6 @@ public class ReadFile {
                 }
             }
 
-            resulPerson = new ArrayList<String>(4);
-            resulPerson = validatePerson.validate(person);
-            int errorP = 0;
-            for (String s : resulPerson) {
-                if (!s.equals("Корректная запись")) {
-                    logger.warning(s);
-                    errorP++;
-                    logger.warning("Клиент не может быть добавлен в репозиторий");
-                }
-            }
-
             String[] addInfo = string[string.length - 1].split(" ");
             if (string[9].equals("Mobile Contract")) {
                 contract = new MobileContract(Integer.parseInt(string[0]),
@@ -131,18 +120,18 @@ public class ReadFile {
                         person, Channels.valueOf(addInfo[0]));
             }
 
-            resultContract = new ArrayList<String>(5);
-            resultContract = validateContract.resultValidateContracts(contract, string[9], addInfo);
+            messages = new ArrayList<>();
+            messages = check(contract,validatorList);
             int errorC = 0;
-            for (String s : resultContract) {
-                if (!s.equals("Корректная запись")) {
-                    logger.warning(s);
+            for (Message s : messages) {
+                if (!s.getStatus().equals(Status.OK)) {
+                    logger.warning(s.getString());
                     errorC++;
                     logger.warning("Контаркт не может быть добавлен в репозиторий");
                 }
             }
 
-            if (errorP == 0 && errorC == 0) {
+            if (errorC == 0) {
                 logger.info("Считывание " + numberString+ " прошло успешно и контаркт добавлен в репозиторий");
                 list.add(contract);
                 logger.info("Контаркт успешно добавлен в репозиторий");
@@ -153,5 +142,15 @@ public class ReadFile {
         csvReader.close();
         logger.info("Считывание файла contracts.csv завершено");
         return list;
+    }
+
+    public static List<Message> check(Contract contract, List<Validator> validatorList) throws ClassNotFoundException {
+        List<Message> messageList = new ArrayList<>();
+        for (Validator v: validatorList) {
+            if (v.getAppliableFor().isInstance(contract)) {
+                messageList.add(v.validate(contract));
+            }
+        }
+        return  messageList;
     }
 }

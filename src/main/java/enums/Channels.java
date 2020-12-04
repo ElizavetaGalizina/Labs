@@ -4,24 +4,5 @@ package enums;
  * пакеты каналов.
  */
 public enum Channels {
-    /**
-     * пакет каналов семейный.
-     */
-    FAMAlY,
-    /**
-     * пакет каналов все включено.
-     */
-    ALLINCLUSIVE,
-    /**
-     * пакет каналов премьер.
-     */
-    PREMIUM,
-    /**
-     * пакет каналов ночной.
-     */
-    NIGHT,
-    /**
-     * пакет каналов спорт.
-     */
-    SPORTS
+    FAMAlY, ALLINCLUSIVE, PREMIUM, NIGHT, SPORTS
 }

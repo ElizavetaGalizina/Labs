@@ -1,5 +1,5 @@
 ID;begin;end;contract number;fio;bdate;pasSeries;pasNumber;gender;contract type;add info
-1;16.12.2015;16.12.2020;1;Ivanov Ivan Ivanovich;20.11.1955;2012;333455;MAN;Mobile Contract;400 10 400
+1;16.12.2015;16.12.2020;1;Ivanov Ivan Ivanovich;20.11.2005;2012;333455;MAN;Mobile Contract;400 10 400
 2;16.12.2015;16.12.2020;1;Ivanov Ivan Ivanovich;20.11.1989;2012;333455;MAN;TV Contract;FAMAlY
 3;16.12.2015;16.12.2020;1;Ivanov Ivan Ivanovich;20.11.1989;2012;333455;MAN;Internet Contract;500
 4;17.07.2019;11.03.2021;2;Smirnova Alla Vladimirovna;16.10.2000;2018;12458944;WOMEN;Internet Contract;100
