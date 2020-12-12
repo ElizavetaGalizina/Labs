@@ -1,6 +1,7 @@
 package contracts;
 
 import enity.People;
+import reflection.Injector;
 import sort.SortByOwner;
 import org.junit.jupiter.api.Test;
 import enums.*;
@@ -36,7 +37,8 @@ class RepositoryTest {
     }
 
     @Test
-    void sortBy() {
+    void sortBy() throws IllegalAccessException {
+        Injector injector = new Injector();
         Repository repository = new Repository();
 
         People person1 = new People(1, "Ivanov Ivan Ivanovich", LocalDate.of(1985, 5, 12), "2015",
@@ -59,7 +61,7 @@ class RepositoryTest {
         repository.add(contract2);
         repository.add(contract3);
         repository.add(contract4);
-
+        injector.inject(repository);
         repository.sortBy(new SortByOwner());
     }
 

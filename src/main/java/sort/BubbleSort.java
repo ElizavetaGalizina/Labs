@@ -1,6 +1,7 @@
 package sort;
 
 import contracts.Contract;
+import reflection.MyInject;
 
 import java.util.Comparator;
 
@@ -8,7 +9,6 @@ import java.util.Comparator;
  * пузырбковая сортировка.
  */
 public class BubbleSort implements ISorted {
-
     @Override
     public final Object[] sort(final Object[] array, final Comparator<Contract> comparator) {
         boolean isSorted = false;

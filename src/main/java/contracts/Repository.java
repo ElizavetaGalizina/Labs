@@ -1,5 +1,6 @@
 package contracts;
 
+import reflection.MyInject;
 import sort.BubbleSort;
 import sort.ISorted;
 
@@ -28,7 +29,8 @@ public class Repository {
     /**
      * сортировка.
      */
-    private ISorted sorter = new BubbleSort();
+    @MyInject
+    private ISorted sorter;    // = new BubbleSort();
 
     /**
      * конструктор без параметров.

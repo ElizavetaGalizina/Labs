@@ -5,6 +5,7 @@ import contracts.*;
 import enums.Gender;
 import enums.Channels;
 import enity.People;
+import reflection.MyInject;
 import validators.*;
 
 import java.io.FileNotFoundException;
@@ -53,6 +54,7 @@ public class ReadFile {
     /**
      * результат проверки контракта.
      */
+    @MyInject(clazz = Validator.class)
     private List<Validator> validatorList = new ArrayList<>();
     /**
      * список сообщений по проверке контракта.
@@ -75,13 +77,13 @@ public class ReadFile {
      */
     public Repository readFile(Reader reader)
             throws IOException, ClassNotFoundException {
-        validatorList.add(new AgeValidator());
-        validatorList.add(new IdValidator());
-        validatorList.add(new DateValidator());
-        validatorList.add(new InternetContractValidator());
-        validatorList.add(new MobileContractValidator());
-        validatorList.add(new NumberValidator());
-        validatorList.add(new DigitalTVContractValidate());
+//        validatorList.add(new AgeValidator());
+//        validatorList.add(new IdValidator());
+//        validatorList.add(new DateValidator());
+//        validatorList.add(new InternetContractValidator());
+//        validatorList.add(new MobileContractValidator());
+//        validatorList.add(new NumberValidator());
+//        validatorList.add(new DigitalTVContractValidate());
         csvReader = new CSVReaderBuilder(new FileReader("contracts.csv")).
                 withCSVParser(pars).withSkipLines(0).build();
         logger.info("Началось считывание файла contracts.csv");

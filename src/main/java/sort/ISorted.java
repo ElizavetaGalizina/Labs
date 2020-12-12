@@ -1,12 +1,14 @@
 package sort;
 
 import contracts.Contract;
+import reflection.MyInject;
 
 import java.util.Comparator;
 
 /**
  * интерфейс сорторовок.
  */
+
 public interface ISorted {
     /**
      * сортировка контрактов.
