@@ -3,6 +3,8 @@ package validators;
 import contracts.Contract;
 import contracts.MobileContract;
 import org.junit.jupiter.api.Test;
+import validatorsutils.Message;
+import validatorsutils.Status;
 
 import java.time.LocalDate;
 
@@ -13,7 +15,7 @@ class MobileContractValidatorTest {
     @Test
     void validate() {
         MobileContractValidator mobileContractValidator = new MobileContractValidator();
-        Message message1 = new Message("Мобильный контракт",Status.OK);
+        Message message1 = new Message("Мобильный контракт", Status.OK);
         Message message2 = new Message("Мобильный контракт",Status.ERROR);
         Contract contract1 = new MobileContract(3, LocalDate.of(2010, 1, 1),
                 LocalDate.of(2020, 12, 10), 1, null, 10, 100, 500);

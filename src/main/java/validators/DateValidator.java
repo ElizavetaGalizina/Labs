@@ -1,6 +1,8 @@
 package validators;
 
 import contracts.Contract;
+import validatorsutils.Message;
+import validatorsutils.Status;
 
 import java.time.LocalDate;
 
@@ -20,7 +22,7 @@ public class DateValidator implements Validator {
         int endDay = end.getDayOfMonth();
         if (startYear < endYear || (startYear == endYear && startMonth < endMonth)
                 || (startYear == endYear && startMonth == endMonth && startDay < endDay)) {
-            return new Message("Дата контракта",Status.OK);
+            return new Message("Дата контракта", Status.OK);
         } else {
             return new Message("Дата контракта",Status.ERROR);
         }

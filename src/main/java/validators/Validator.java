@@ -1,6 +1,7 @@
 package validators;
 
 import contracts.*;
+import validatorsutils.Message;
 
 /**
  * Интерфейс валидатора.

@@ -1,6 +1,8 @@
 package validators;
 
 import contracts.Contract;
+import validatorsutils.Message;
+import validatorsutils.Status;
 
 /**
  * Вадитор проверки номера контракта.
@@ -10,7 +12,7 @@ public class NumberValidator implements Validator {
     @Override
     public Message validate(Contract contract) {
         if (contract.getNumberContract()>0) {
-            return new Message("Номер контракта",Status.OK);
+            return new Message("Номер контракта", Status.OK);
         } else {
             return new Message("Номер контракта",Status.ERROR);
         }

@@ -9,8 +9,8 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface Configuration {
     /**
-     * Array of packages
-     * @return array of packages
+     * Пакеты.
+     * @return массив пакетов
      */
     String[] packages();
 }

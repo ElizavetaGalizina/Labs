@@ -1,4 +1,4 @@
-package validators;
+package validatorsutils;
 
 /**
  * Возможные статусы проверки контаркта.

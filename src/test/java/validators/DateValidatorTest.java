@@ -5,6 +5,8 @@ import contracts.InternetContract;
 import enity.People;
 import enums.Gender;
 import org.junit.jupiter.api.Test;
+import validatorsutils.Message;
+import validatorsutils.Status;
 
 import java.time.LocalDate;
 
@@ -15,7 +17,7 @@ class DateValidatorTest {
     @Test
     void validate() {
         DateValidator dateValidator = new DateValidator();
-        Message message1 = new Message("Дата контаркта",Status.OK);
+        Message message1 = new Message("Дата контаркта", Status.OK);
         Message message2 = new Message("Дата контаркта",Status.ERROR);
         People person1 = new People(1, "Ivanov Ivan Ivanovich", LocalDate.of(1985, 5, 12), "2015",
                 "365458", Gender.MAN);

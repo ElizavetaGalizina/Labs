@@ -1,4 +1,4 @@
-package validators;
+package validatorsutils;
 
 /**
  * Класс, который представляет собой резльтат проверки контракта.
