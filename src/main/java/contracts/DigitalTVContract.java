@@ -2,7 +2,6 @@ package contracts;
 
 import enums.Channels;
 import enity.People;
-
 import java.time.LocalDate;
 
 /**

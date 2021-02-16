@@ -1,7 +1,6 @@
 package contracts;
 
 import enity.People;
-
 import java.time.LocalDate;
 
 /**

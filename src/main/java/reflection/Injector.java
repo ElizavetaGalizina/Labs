@@ -11,12 +11,14 @@ import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Supplier;
+import java.util.logging.Logger;
 
 @Configuration(packages = {"sort","validators"})
 /**
  * класс для инъекции зависимостей.
  */
-public class Injector {
+public class Injector extends InjectorException{
     /**
      * Лист классов.
      */
@@ -25,7 +27,7 @@ public class Injector {
     /**
      * Конструктор без параметров.
      */
-    public Injector() {
+    public Injector() throws InjectorException {
         if (this.getClass().isAnnotationPresent(Configuration.class)) {
             Configuration annotation = this.getClass().getAnnotation(Configuration.class);
 
@@ -41,9 +43,8 @@ public class Injector {
                             list.add(Class.forName(nameClass).getConstructor().newInstance());
                         }
                     }
-                } catch (IOException | InstantiationException | InvocationTargetException
-                        |NoSuchMethodException | IllegalAccessException | ClassNotFoundException e) {
-                    System.out.println("");
+                } catch (Exception e) {
+                    throw new InjectorException(e);
                 }
             }
         }

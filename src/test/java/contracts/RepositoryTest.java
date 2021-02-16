@@ -2,6 +2,7 @@ package contracts;
 
 import enity.People;
 import reflection.Injector;
+import reflection.InjectorException;
 import sort.SortByOwner;
 import org.junit.jupiter.api.Test;
 import enums.*;
@@ -37,7 +38,7 @@ class RepositoryTest {
     }
 
     @Test
-    void sortBy() throws IllegalAccessException {
+    void sortBy() throws IllegalAccessException, InjectorException {
         Injector injector = new Injector();
         Repository repository = new Repository();
 
