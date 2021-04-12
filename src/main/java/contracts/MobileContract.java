@@ -2,11 +2,14 @@ package contracts;
 
 import enity.People;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
 
 /**
  * класс контракта на мобильную связь.
  */
+@XmlRootElement
 public class MobileContract extends Contract {
 
     /**
@@ -53,6 +56,7 @@ public class MobileContract extends Contract {
      * возвращает количество смс.
      * @return sms количество смс
      */
+    @XmlElement
     public final int getSms() {
         return sms;
     }
@@ -69,6 +73,7 @@ public class MobileContract extends Contract {
      * возвращает количество минут.
      * @return  min количество минут
      */
+    @XmlElement
     public final int getMin() {
         return min;
     }
@@ -85,6 +90,7 @@ public class MobileContract extends Contract {
      * возвращает количество гб.
      * @return gb количество гб
      */
+    @XmlElement
     public final int getGb() {
         return gb;
     }

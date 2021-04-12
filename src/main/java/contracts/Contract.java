@@ -1,12 +1,23 @@
 package contracts;
 
 import enity.People;
+import enums.Gender;
+import xml.LocalDateAdapter;
+
+import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  * класс контракта.
  */
-public class Contract {
+@XmlRootElement
+@XmlSeeAlso({Gender.class, People.class, LocalDate.class})
+public class Contract implements Serializable {
     /**
      * идентификатор контракта.
      */
@@ -56,6 +67,7 @@ public class Contract {
      * возвращает id контракта.
      * @return id идентификатор
      */
+    @XmlElement
     public final int getId() {
         return id;
     }
@@ -72,6 +84,8 @@ public class Contract {
      * возвращает дату заключения контракта.
      * @return дата заключения контракта
      */
+    @XmlElement
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     public final LocalDate getStartDate() {
         return startDate;
     }
@@ -88,6 +102,8 @@ public class Contract {
      * возвращает дату расторжения контракта.
      * @return дата расторжения
      */
+    @XmlElement
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     public final LocalDate getEndDate() {
         return endDate;
     }
@@ -104,6 +120,7 @@ public class Contract {
      * возращает номер контракта.
      * @return номер контракта
      */
+    @XmlElement
     public final int getNumberContract() {
         return numberContract;
     }
@@ -120,6 +137,7 @@ public class Contract {
      * возращает владельца контракта.
      * @return владелец
      */
+    @XmlAnyElement
     public final People getOwner() {
         return owner;
     }

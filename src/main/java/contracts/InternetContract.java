@@ -2,11 +2,14 @@ package contracts;
 
 import enity.People;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
 
 /**
  * класс контракта на проводной интернет.
  */
+@XmlRootElement
 public class InternetContract extends Contract {
     /**
      * скорость интернета.
@@ -39,6 +42,7 @@ public class InternetContract extends Contract {
      * возвращает максимальную скорость.
      * @return максимальная скорость
      */
+    @XmlElement
     public int getSpeed() {
         return speed;
     }

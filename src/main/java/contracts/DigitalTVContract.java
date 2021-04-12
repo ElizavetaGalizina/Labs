@@ -2,11 +2,15 @@ package contracts;
 
 import enums.Channels;
 import enity.People;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
 
 /**
  * класс конракта на цифровое телевидение.
  */
+@XmlRootElement
 public class DigitalTVContract extends Contract {
     /**
      * пакет каналов,доступных по контракту.
@@ -40,6 +44,7 @@ public class DigitalTVContract extends Contract {
      * получение пакета каналов.
      * @return пакет каналов
      */
+    @XmlElement
     public final Channels getChannels() {
         return channels;
     }

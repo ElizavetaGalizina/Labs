@@ -146,6 +146,10 @@ public class Repository {
         return list;
     }
 
+    public Contract[] getContract() {
+        return contract;
+    }
+
     @Override
     public final String toString() {
         return "Repository{"

@@ -1,12 +1,17 @@
 package enity;
 
 import enums.Gender;
+import xml.LocalDateAdapter;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
 /**
  * класс владельца контракта.
  */
+@XmlRootElement
 public class People {
     /**
      * идентификатор владельца.
@@ -32,6 +37,10 @@ public class People {
      * пол.
      */
     private Gender sex;
+
+    public People() {
+    }
+
     /**
      * конструктор с параметрами.
      * @param personId идентификатор
@@ -41,6 +50,8 @@ public class People {
      * @param passportNumber  номер паспорта
      * @param sex  пол
      */
+
+
 
     public People(final int personId, final String fio, final LocalDate bithday,
                   final String passportSeries, final String passportNumber,
@@ -57,6 +68,7 @@ public class People {
      *возвращает id персоны.
      * @return id идентификатор
      */
+    @XmlElement
     public final int getId() {
         return id;
     }
@@ -73,6 +85,7 @@ public class People {
      * возвращает фио персоны.
      * @return fio фамилия,имя,отчество
      */
+    @XmlElement
     public final String getFio() {
         return fio;
     }
@@ -89,6 +102,8 @@ public class People {
      * возвращает дату рождения персоны.
      * @return bithday дата рождения
      */
+    @XmlElement
+    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     public final LocalDate getBithday() {
         return bithday;
     }
@@ -105,6 +120,7 @@ public class People {
      * возвращает серию паспорта песроны.
      * @return passportSeries серия паспорта
      */
+    @XmlElement
     public final String getPassportSeries() {
         return passportSeries;
     }
@@ -121,6 +137,7 @@ public class People {
      * возвращает номер паспорта.
      * @return passportNumber номер паспорта
      */
+    @XmlElement
     public final String getPassportNumber() {
         return passportNumber;
     }
@@ -137,6 +154,7 @@ public class People {
      * возвращает пол персоны.
      * @return sex пол
      */
+    @XmlElement
     public final Gender getSex() {
         return sex;
     }

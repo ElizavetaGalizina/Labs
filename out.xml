@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contracts>
+    <contractList>
+        <endDate>2017-05-10</endDate>
+        <id>1</id>
+        <numberContract>1</numberContract>
+        <people>
+            <bithday>1985-05-12</bithday>
+            <fio>Ivanov Ivan Ivanovich</fio>
+            <id>1</id>
+            <passportNumber>365458</passportNumber>
+            <passportSeries>2015</passportSeries>
+            <sex>MAN</sex>
+        </people>
+        <startDate>2015-05-10</startDate>
+    </contractList>
+    <contractList>
+        <endDate>2020-12-10</endDate>
+        <id>2</id>
+        <numberContract>2</numberContract>
+        <people>
+            <bithday>1972-07-24</bithday>
+            <fio>Sidorova Alla Petrovna</fio>
+            <id>2</id>
+            <passportNumber>356874</passportNumber>
+            <passportSeries>2017</passportSeries>
+            <sex>WOMEN</sex>
+        </people>
+        <startDate>2020-05-10</startDate>
+    </contractList>
+    <contractList>
+        <endDate>2020-12-10</endDate>
+        <id>3</id>
+        <numberContract>1</numberContract>
+        <people>
+            <bithday>1990-10-01</bithday>
+            <fio>Safonov Nikolay Leonidovich</fio>
+            <id>3</id>
+            <passportNumber>254789</passportNumber>
+            <passportSeries>2005</passportSeries>
+            <sex>MAN</sex>
+        </people>
+        <startDate>2010-01-01</startDate>
+    </contractList>
+    <contractList>
+        <endDate>2020-12-10</endDate>
+        <id>4</id>
+        <numberContract>2</numberContract>
+        <people>
+            <bithday>1990-10-01</bithday>
+            <fio>Safonov Nikolay Leonidovich</fio>
+            <id>3</id>
+            <passportNumber>254789</passportNumber>
+            <passportSeries>2005</passportSeries>
+            <sex>MAN</sex>
+        </people>
+        <startDate>2020-10-10</startDate>
+    </contractList>
+</contracts>
