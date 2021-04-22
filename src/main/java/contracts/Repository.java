@@ -146,6 +146,10 @@ public class Repository {
         return list;
     }
 
+    public int size() {
+        return index;
+    }
+
     @Override
     public final String toString() {
         return "Repository{"
